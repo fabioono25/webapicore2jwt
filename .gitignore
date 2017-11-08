@@ -1,0 +1,7 @@
+/bin/
+/obj/
+/.vs/
+/.vscode/
+/obj
+/wwwroot
+.vs/config/applicationhost.config
