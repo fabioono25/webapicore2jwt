@@ -14,8 +14,8 @@ namespace rest.Repository.Interface
         Task<Product> GetProduct(string id);
         Task AddProduct(Product item);
         Task<DeleteResult> RemoveProduct(string id);
-        Task<ReplaceOneResult> UpdateProduct(string id, Product item);
-        Task<ReplaceOneResult> UpdateProductDocument(string id, string body);
+        Task<ReplaceOneResult> UpdateProduct(string id, Product product);
+        Task<ReplaceOneResult> UpdateProductDocument(string id, Product product);
         Task<DeleteResult> RemoveAllProducts();
     }
 }

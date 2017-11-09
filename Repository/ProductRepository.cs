@@ -69,10 +69,12 @@ namespace rest.Repository.Interface
             }
         }
 
-        public async Task<ReplaceOneResult> UpdateProductDocument(string id, string name)
+        public async Task<ReplaceOneResult> UpdateProductDocument(string id, Product product)
         {
             var item = await GetProduct(id) ?? new Product();
-            item.Name = name;
+            item.Active = product.Active;
+            item.Code = product.Code;
+            item.Name = product.Name;
             item.UpdatedOn = DateTime.Now;
 
             return await UpdateProduct(id, item);

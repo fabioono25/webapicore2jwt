@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 using Newtonsoft.Json;
 using rest.Infra;
 using rest.Model;
@@ -10,6 +12,7 @@ using rest.Repository.Interface;
 
 namespace rest.Controllers
 {
+    [Authorize(Policy = "Member")]
     [Produces("application/json")]
     [Route("api/[controller]")]
     public class ProductsController : Controller
@@ -47,16 +50,23 @@ namespace rest.Controllers
 
         // POST api/Products
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Product product)
         {
-            _ProductRepository.AddProduct(new Product() { Name = value, CreatedOn = DateTime.Now, UpdatedOn = DateTime.Now });
+            _ProductRepository.AddProduct(new Product() 
+                {   Id = ObjectId.GenerateNewId().ToString(),
+                    Name = product.Name, 
+                    Code = product.Code,
+                    Active = true,
+                    CreatedOn = DateTime.Now, 
+                    UpdatedOn = DateTime.Now 
+                });
         }
 
         // PUT api/Products/5
         [HttpPut("{id}")]
-        public void Put(string id, [FromBody]string value)
+        public void Put(string id, [FromBody]Product product)
         {
-            _ProductRepository.UpdateProductDocument(id, value);
+            _ProductRepository.UpdateProductDocument(id, product);
         }
 
         // DELETE api/Products/23243423
