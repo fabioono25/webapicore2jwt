@@ -38,6 +38,8 @@ namespace rest
                     .AllowCredentials());
             });
 
+            //services.AddCors();
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     .AddJwtBearer(options => {
                         options.TokenValidationParameters = new TokenValidationParameters
@@ -94,6 +96,7 @@ namespace rest
             //     app.UseDeveloperExceptionPage();
             // }
 
+            app.UseCors("CorsPolicy");
             app.UseDeveloperExceptionPage();
             app.UseStaticFiles();
             app.UseAuthentication();
