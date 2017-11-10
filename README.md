@@ -67,13 +67,33 @@ To use POST, so you can insert some Products, use this URL bellow:
 http://localhost:5000/api/Products
 ```
 
-With this payload:
+With this payloads:
 
 ```javascript
 {
-    "code": "COD1",
-    "name": "Produto 1",
-    "active": true
+    "Code": "COD1",
+    "Name": "Produto 1",
+    "Active": true,
+    "ImageUrl": "http://download.gamezone.com/uploads/image/data/1102202/League_of_Legends_Rune_Wars_Renekton.jpg",
+	"Description": "Descrição do Produto 1"
+}
+```
+```javascript
+{
+    "Code": "COD2",
+    "Name": "Produto 2",
+    "Active": true,
+    "ImageUrl": "http://images.nintendolife.com/news/2014/08/weirdness_yoshis_real_name_is_both_silly_and_scientific/attachment/0/900x.jpg",
+	"Description": "Descrição do Produto 2"	
+}
+```
+```javascript
+{
+    "Code": "COD3",
+    "Name": "Produto 3",
+    "Active": true,
+    "ImageUrl": "http://da-v4-mbl.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2012/08/snails-612x320.jpg",
+	"Description": "Descrição do Produto 3"	
 }
 ```
 
