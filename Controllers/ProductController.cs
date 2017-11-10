@@ -57,6 +57,7 @@ namespace rest.Controllers
                     Name = product.Name, 
                     Code = product.Code,
                     Active = true,
+                    Description = product.Description,
                     ImageUrl = product.ImageUrl,
                     CreatedOn = DateTime.Now, 
                     UpdatedOn = DateTime.Now 
